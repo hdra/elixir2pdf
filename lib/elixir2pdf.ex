@@ -30,6 +30,11 @@ defmodule Elixir2pdf do
     pid
   end
 
+  def set_pagesize(pid, width, height) do
+    pid |> :eg_pdf.set_pagesize(width, height)
+    pid
+  end
+
   @doc """
   Sets the font that will apply to all text that follows.
 
