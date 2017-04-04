@@ -183,6 +183,17 @@ defmodule Elixir2pdf do
   end
 
   @doc """
+  Exports the PDF process to binary data.
+
+  ## Parameters
+  - `pid` - the process identifier of the current PDF process.
+  """
+  def export(pid) do
+    {pdf, _} = pid |> :eg_pdf.export
+    pdf
+  end
+
+  @doc """
   Deletes the PDF process at the given identifier.
 
   ## Parameters
