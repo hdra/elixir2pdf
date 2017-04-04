@@ -25,8 +25,9 @@ defmodule Elixir2pdf do
     pid
   end
 
-  def set_page_size(pid, pagesize) do
+  def set_pagesize(pid, pagesize) do
     pid |> :eg_pdf.set_pagesize(pagesize)
+    pid
   end
 
   @doc """
