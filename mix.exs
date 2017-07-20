@@ -13,9 +13,9 @@ defmodule Elixir2pdf.Mixfile do
      package: package(),
      deps: deps(),
      docs: [
-            main: "readme", 
+            main: "readme",
             extras: ["README.md", "COLORS.md", "FONTS.md", "CHANGELOG.md"]
-           ] 
+           ]
     ]
   end
 
@@ -37,7 +37,7 @@ defmodule Elixir2pdf.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:erlguten, github: "kennellroxco/erlguten"},
+      {:erlguten, github: "ztmr/erlguten"},
       {:ex_doc, github: "elixir-lang/ex_doc", only: :dev},
       {:earmark, github: "pragdave/earmark", override: true, only: :dev}
     ]
