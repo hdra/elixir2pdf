@@ -36,6 +36,31 @@ defmodule Elixir2pdf do
   end
 
   @doc """
+  Set the PDF page size to a predefined preset size, for example `:a4`.
+  A number of common papersizes are supported. A complete enumeration of predefined sizes
+  can be checked [here](https://github.com/kennellroxco/erlguten/blob/master/src/eg_pdf.erl#L210).
+
+  ## Parameters
+  - `pagesize` - Predefined page size atom.
+  """
+  def set_pagesize(pid, pagesize) do
+    pid |> :eg_pdf.set_pagesize(pagesize)
+    pid
+  end
+
+  @doc """
+  Set the PDF page size to the specified width and height
+
+  ## Parameters
+  - `width` - Page width
+  - `height` - Page height
+  """
+  def set_pagesize(pid, width, height) do
+    pid |> :eg_pdf.set_pagesize(width, height)
+    pid
+  end
+
+  @doc """
   Sets the font that will apply to all text that follows.
 
   ## Parameters
@@ -177,6 +202,17 @@ defmodule Elixir2pdf do
   def insert_image(pid, path, basepoint, size) do
     pid |> :eg_pdf.image(path |> String.to_charlist, basepoint, size)
     pid
+  end
+
+  @doc """
+  Exports the PDF binary data.
+
+  ## Parameters
+  - `pid` - the process identifier of the current PDF process.
+  """
+  def export(pid) do
+    {pdf, _} = pid |> :eg_pdf.export
+    pdf
   end
 
   @doc """
